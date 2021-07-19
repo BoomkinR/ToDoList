@@ -3,13 +3,14 @@ import './comp.css'
 import axios from 'axios'
 import Modal from './Modal'
 import UpdateModal from './UpdateModal'
+import Cookies from 'js-cookie'
 
 
 export default function MainApp(props){
 
 
 
-
+const csrftoken = Cookies.get('csrftoken')
 const [user , setUser] = useState("user")
 const [leader , setLeader] = useState("Leader")
 const [tasks , setTasks] = useState([])
@@ -23,14 +24,16 @@ const [activemodal_update , setActivemodal_update] = useState(false)
      useEffect( () => {axios({
      method: 'GET',
      url: 'http://127.0.0.1:8000/api/task/'
-     }).then((response) => {setTasks(response.data)});
+     }).then((response) => {setTasks(response.data)})});
      axios({
      method: 'GET',
-     url: 'http://127.0.0.1:8000/api/getname/'
+     url: 'http://127.0.0.1:8000/api/getname/',
+     headers: { 'X-CSRFToken': csrftoken },
      }).then((response) => {
         setUser(response.data);
-
-        })} , [])
+        console.log(response.data);
+        }).catch(function (error) {
+        if (error.response) { window.location ="/"}})
      useEffect( () => {axios({
      method: 'GET',
      url: 'http://127.0.0.1:8000/api/padavan/'

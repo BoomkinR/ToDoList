@@ -47,8 +47,7 @@ class GetTasks(viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = self.queryset
-        # user = self.request.user.ID
-        user = Developer.objects.get(username='alexr')
+        user = self.request.user.ID
         query_set = queryset.filter(Respons=user).order_by('Date_update') | queryset.filter(Creator=user).order_by(
             'Date_update')
         return query_set
@@ -57,13 +56,13 @@ class GetTasks(viewsets.ModelViewSet):
 class GetName(APIView):
 
     def get(self, request, *args, **kwargs):
-        user = Developer.objects.get(username=request.user)
+        user = Developer.objects.get(username=request.user.username)
 
         serializer = PadavanSerializer(user, many=False)
-        print(serializer.data)
+        print(request.user.username)
         if request.user.is_authenticated:
             return Response(serializer.data)
-        return Response(serializer.data)  # error
+        return Response("error")
 
 
 class GetPadavan(viewsets.ModelViewSet):
@@ -72,10 +71,12 @@ class GetPadavan(viewsets.ModelViewSet):
     http_method_names = ['get']
 
     def get_queryset(self):
+
         queryset = self.queryset
-        # user = self.request.user
-        user = Developer.objects.get(username='alexr')
-        query_set = queryset.filter(Leader=user)
+        user = self.request.user
+        try:
+            query_set = queryset.filter(Leader=user)
+        except: query_set = None
         return query_set
 
 
@@ -86,11 +87,12 @@ class GetDeveloper(viewsets.ModelViewSet):
     actor = None
 
     def retrieve(self, request, pk=None):
-        # if request.user.is_authenticated():
-        queryset = Developer.objects.all()
-        self.actor = queryset.get(pk=pk)
-        serializer = PadavanSerializer(self.actor)
-        return Response(serializer.data)
+        if request.user.is_authenticated():
+            queryset = Developer.objects.all()
+            self.actor = queryset.get(pk=pk)
+            serializer = PadavanSerializer(self.actor)
+            return Response(serializer.data)
+        else: return Response("error")
 
     @action(detail=False)
     def get_tasks(self, request, **kwargs):
