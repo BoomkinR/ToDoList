@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="40ffa2d2-1b1e-47d4-a2f5-e4de7325fa84" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/taskmanager/apps/ToDoMe/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/apps/ToDoMe/api/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taskmanager/apps/ToDoMe/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/apps/ToDoMe/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taskmanager/apps/ToDoMe/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/apps/ToDoMe/models.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1uxNviaGZf6NskLdqISAgYdF8x6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="40ffa2d2-1b1e-47d4-a2f5-e4de7325fa84" name="Default Changelist" comment="" />
+      <created>1625603512505</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1625603512505</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="277" y="55" key="SettingsEditor" timestamp="1625726381365">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1625726381365" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1626411789041">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1626411789041" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1625915620782">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1625915620782" />
+  </component>
+</project>
