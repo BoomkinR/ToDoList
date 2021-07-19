@@ -19,6 +19,16 @@ const authOptions = {
      headers: { 'X-CSRFToken': csrftoken },
      data: {"Create" : "1" , "Title" : title, "Respons" : responser, "Description" : descr, "Date_end": Date, "Priority": priority, "Status": status }
      }
+function Close(){
+setTitle("");
+setResponser("");
+setDescr("");
+setDate("");
+setPriority("");
+setStatus("");
+setActive(false);
+}
+
 function send(){
     axios(authOptions).then((response) => {console.log(response)});
     setActive(false);
@@ -28,7 +38,7 @@ return (
             <div className = {active ? "modal active" : "modal"}>
                 <div className = {active ? "modal_content active" : "modal_content "}>
 
-                        <p className = "modal_close" onClick= {() => setActive(false)}> X </p>
+                        <p className = "modal_close" onClick= {() =>{Close()} }> X </p>
 
                             <div >
                             <label className="words"> Title: </label>

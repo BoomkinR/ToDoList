@@ -22,15 +22,27 @@ if(descr == ""){setDescr(task.Description)};
 if(date == ""){setDate(task.Date_end)};
 if(priority == ""){setPriority(task.Priority)};
 if(status == ""){setStatus(task.Status)};
+
+console.log(title)
+}
+function Close(){
+setTitle("");
+setResponser("");
+setDescr("");
+setDate("");
+setPriority("");
+setStatus("");
+setActive(false);
 }
 
 const authOptions = {
      method: 'POST',
      url: 'http://127.0.0.1:8000/api/redact/',
      headers: { 'X-CSRFToken': csrftoken },
-     data: {"ID" : task.ID ,"Create" : "0" , "Title" : title, "Respons" : responser, "Description" : descr, "Date_end": Date, "Priority": priority, "Status": status }
+     data: {"ID" : task.ID ,"Create" : "0" , "Title" : title, "Respons" : responser, "Description" : descr, "Date_end": date, "Priority": priority, "Status": status }
      }
 function send(){
+    Load()
     axios(authOptions).then((response) => {console.log(response)});
     setActive(false);
     }
@@ -39,7 +51,7 @@ if (active){
     return (
             <div className = {active ? "modal active" : "modal"}>
                 <div className = {active ? "modal_content active" : "modal_content "}>
-                    <p className = "modal_close" onClick= {() => setActive(false)}> X </p>
+                    <p className = "modal_close" onClick= {() =>{Close()} }> X </p>
 
                         <div >
                 <label className="words"> Title: </label>

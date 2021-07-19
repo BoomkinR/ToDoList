@@ -111,11 +111,11 @@ class Create_or_Update_task(APIView):
     def post(self, request, *args, **kwargs):
         data = request.data;
         print(data)
-        user = request.user
-        responser = data["Respons"]
+        user = Developer.objects.get(ID = request.user.ID)
+        responser = Developer.objects.get(ID =data["Respons"])
         task = Task()
         if data["Create"] == "1":
-            if data['Respons'] == user.ID:
+            if responser == user:
                 task.Respons = responser
             elif self.check_user(user, responser):
                 task.Respons = responser
@@ -126,13 +126,14 @@ class Create_or_Update_task(APIView):
             task.Date_end = data["Date_end"]
             task.Priority = data["Priority"]
             task.Status = data["Status"]
+            task.Description = data["Description"]
             task.save()
             return Response("Created")
         elif data["Create"] == "0":
             task = Task.objects.get(ID=data["ID"])
-            if user.ID == responser or self.check_user(user, responser):
-                print("userId like")
-                if data['Respons'] == user.ID:
+            if responser == user or self.check_user(user, responser):
+                print("Can be chenged")
+                if responser == user:
                     task.Respons = responser
                 elif self.check_user(user, responser):
                     task.Respons = responser
@@ -142,16 +143,19 @@ class Create_or_Update_task(APIView):
                 task.Date_end = data["Date_end"]
                 task.Priority = data["Priority"]
                 task.Status = data["Status"]
+                task.Description = data["Description"]
                 task.save()
-                return Response("saved")
+                return Response("Saved all")
             else:
+                print("ch just stsus")
                 task.Status = data["Status"]
                 task.save()
-                return Response("saved")
+                return Response("Saved status")
         return Response("some error")
 
-    def check_user(self, user, responser_id):
-        developer = Developer.objects.get(ID=responser_id)
-        if developer.Leader == user.ID:
+    def check_user(self, user, responser):
+        if responser.Leader == user:
+            print("Checked true")
             return True
+        print("Checked F")
         return False
